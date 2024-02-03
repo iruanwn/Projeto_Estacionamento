@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container my-2"> 
+            <h1>Lista de Clientes
+            <a th:href="@{/criarCliente}" class="btn btn-primary btn-sm mb-3"> Adicionar </a> 
+            <table border="1" class="table table-striped table-responsive-md"> 
+                <thead> 
+                    <tr> 
+                        <th>ID 
+                        <th>Nome
+                        <th>Cpf
+                        <th>Modelo
+                        <th>Placa
+                    </tr> 
+                </thead> 
+                <tbody> 
+                    <tr th:each="cliente : ${listarClientes}"> 
+                        <td th:text="${cliente.id}"> 
+                        <td th:text="${cliente.nome}"> 
+                        <td th:text="${cliente.cpf}">  
+                        <td th:text="${cliente.modelo}"> 
+                        <td th:text="${cliente.placa}">
+                        <td> 
+                           <a th:href="@{/atualizarClienteForm/{id}(id=${cliente.id})}" class="btn btn-primary">Atualisar</a> 
+                           <a th:href="@{/deletarCliente/{id}(id=${cliente.id})}" class="btn btn-danger">Excluir</a> 
+                           
+                        </td> 
+                    </tr> 
+                </tbody> 
+            </table>  
+        </div>
+    </body>
+</html>
